@@ -17,6 +17,7 @@
             @csrf
             <input type="hidden" id="user_type" name="user_type" value="student">
             <h4>LOG IN</h4>
+            <input type="text" placeholder="NIS" name="user_type" value="murid" id="user_type_input" autocomplete="off">
             <div class="switch">
                 <a href="#student" class="switch-active">Student</a>
                 <a href="#teacher" class="switch-inactive">Teacher</a>
