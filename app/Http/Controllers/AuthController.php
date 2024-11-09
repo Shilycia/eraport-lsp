@@ -11,19 +11,20 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function login(Request $request, murid $murid, walas $walas){
-        $validate = $request->validate([
-            'user_type' => 'string|in:murid,walas'
+        $request->validate([
+            'user_type' => 'required|string|in:student,teacher'
         ]);
+
         if($request->user_type === 'murid'){
             $request->validate([
-                'nis' => 'string',
-                'murid_password' => 'string',
+                'nis' => 'required|string',
+                'murid_password' => 'required|string',
             ]);
             return $this->authenticateStudent($request, $murid);
         }else{
             $request->validate([
-                'nip' => 'string',
-                'teacher_password' => 'string',
+                'nip' => 'required|string',
+                'teacher_password' => 'required|string',
             ]);
             return $this->authenticateTeacher($request, $walas);
         }
@@ -46,8 +47,9 @@ class AuthController extends Controller
     private function authenticateTeacher(Request $request, walas $walas){
         $gurus = $walas::all();
         foreach($gurus as $guru){
+            dd($guru->nip, $request->nip);
             if($guru->nip === $request->nip && Hash::check($request->walas_password, $guru->password)){
-                session(['user_type' => 'student', 'id' => $guru->id, 'username' => $guru->nama_walas]);
+                session(['user_type' => 'teacher', 'id' => $guru->id, 'username' => $guru->nama_walas]);
                 return redirect()->intended('/teacher');
             }
         }

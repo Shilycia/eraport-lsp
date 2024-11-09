@@ -51,8 +51,8 @@
 
             <div id="teacher" style="display:none;">
                 <div class="floating-label">
-                    <input placeholder="NIG" type="text" name="nig" id="nig" autocomplete="off">
-                    <label for="nig">NIG:</label>
+                    <input placeholder="NIG" type="text" name="nip" id="nig" autocomplete="off">
+                    <label for="nip">NIG:</label>
                     <div class="icon profile-icon">
                         <svg class="svg" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <rect width="24" height="24" fill="none"/>

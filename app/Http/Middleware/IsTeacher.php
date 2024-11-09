@@ -16,7 +16,7 @@ class IsTeacher
     public function handle(Request $request, Closure $next)
     {
         if($request->session()->get('user_type') !== 'teacher'){
-            return redirect('/login_teacher')->withErrors(['message' => 'silahkan login untuk melanjutkan']);
+            return redirect('/login#teacher')->withErrors(['message' => 'silahkan login untuk melanjutkan']);
         }
         return $next($request);
     }

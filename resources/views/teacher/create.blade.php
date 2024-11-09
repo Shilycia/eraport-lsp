@@ -1,3 +1,4 @@
+@extends('layout.app')
 <x-layout>
     @section('content')
         <div class="create-container">

@@ -16,9 +16,9 @@ class AuthCheck
     public function handle(Request $request, Closure $next): Response
     {
         if($request->session()->get('user_type') == 'student'){
-            return redirect('/student')->withErrors(['message' => 'silahkan login untuk melanjutkan']);
+            return redirect('/student');
         }elseif($request->session()->get('user_type') == 'teacher'){
-            return redirect('/teacher')->withErrors(['message' => 'silahkan login untuk melanjutkan']);
+            return redirect('/teacher');
         }
         return $next($request);
     }
